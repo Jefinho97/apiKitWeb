@@ -11,6 +11,7 @@ namespace apiKitWeb.Context
     {
         public DbSet<KitNet> KitNets { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Imagem> Imagems { get; set; }
 
         public KitWebsDbContext(DbContextOptions<KitWebsDbContext> options): base(options)
         {

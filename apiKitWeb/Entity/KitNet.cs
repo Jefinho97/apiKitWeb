@@ -15,7 +15,8 @@ namespace apiKitWeb.Entity
         public string Referencia { get; set; }
         public string Descricao { get; set; }
         public string Preco { get; set; }
-        public string Localizacao { get; set; }
+        public float Latitude { get; set; }
+        public float Longitude { get; set; }
 
         public int UsuarioId { get; set; }
     }

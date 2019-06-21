@@ -2,36 +2,23 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using apiKitWeb.Context;
 
 namespace apiKitWeb.Migrations
 {
     [DbContext(typeof(KitWebsDbContext))]
-    partial class KitWebsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190621160908_inicial")]
+    partial class inicial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("apiKitWeb.Entity.Imagem", b =>
-                {
-                    b.Property<int>("ImagemId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ImagemBase64");
-
-                    b.Property<string>("KitNetId");
-
-                    b.HasKey("ImagemId");
-
-                    b.ToTable("Imagems");
-                });
 
             modelBuilder.Entity("apiKitWeb.Entity.KitNet", b =>
                 {
