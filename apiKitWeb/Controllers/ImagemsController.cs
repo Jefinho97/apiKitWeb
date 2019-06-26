@@ -12,52 +12,51 @@ namespace apiKitWeb.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class KitNetsController : ControllerBase
+    public class ImagemsController : ControllerBase
     {
-        // GET api/kitnets
+        // GET api/imagems
         [HttpGet]
         public ActionResult Get([FromServices]KitWebsDbContext context)
         {
-            return Ok(context.KitNets);
+            return Ok(context.Imagems);
         }
 
-        // GET api/kitnets/5
+        // GET api/imagems/5
         [HttpGet("{id}")]
         public ActionResult Get([FromServices]KitWebsDbContext context, int id)
         {
-            var kitnet = context.KitNets.Where(x => x.KitNetId == id);
-            return Ok(kitnet);
+            var imagem = context.Imagems.Where(x => x.ImagemId == id);
+            return Ok(imagem);
         }
 
-
-        // POST api/kitnets
+        // POST api/imagems
         [HttpPost]
-        public IActionResult Post([FromServices]KitWebsDbContext context, [FromBody] KitNet kitNet)
+        public IActionResult Post([FromServices]KitWebsDbContext context, [FromBody] Imagem imagem)
         {
-            context.KitNets.Add(kitNet);
+            context.Imagems.Add(imagem);
             context.SaveChanges();
-            return Ok(new { message = "KitNet Cadastrada com sucesso" });
+            return Ok(new { message = "Imagem Cadastrada com sucesso" });
         }
 
 
 
-        // PUT api/kitnets/5
+        // PUT api/imagems/5
         [HttpPut]
-        public IActionResult Put([FromServices]KitWebsDbContext context, [FromBody] KitNet kitNet)
+        public IActionResult Put([FromServices]KitWebsDbContext context, [FromBody] Imagem imagem)
         {
-            context.Entry<KitNet>(kitNet).State =
+            context.Entry<Imagem>(imagem).State =
                 Microsoft.EntityFrameworkCore.EntityState.Modified;
             context.SaveChanges();
             return Ok(new { message = "Alterado com sucesso" });
         }
 
-        // DELETE api/kitnets/5
+        // DELETE api/imagems/5
         [HttpDelete("{id}")]
         public IActionResult Delete([FromServices]KitWebsDbContext context, int id)
         {
-            var kitNet = context.KitNets.First(x => x.KitNetId == id);
+            var imagem = context.Imagems.First(x => x.ImagemId == id);
 
-            context.Entry<KitNet>(kitNet).State =
+            context.Entry<Imagem>(imagem).State =
                 Microsoft.EntityFrameworkCore.EntityState.Deleted;
             context.SaveChanges();
             return Ok(new { message = "Excluido com sucesso" });

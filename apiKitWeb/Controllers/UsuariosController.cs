@@ -14,7 +14,7 @@ namespace apiKitWeb.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        // GET api/usuarios
+        // GET api/kitnets
         [HttpGet]
         public ActionResult Get([FromServices]KitWebsDbContext context)
         {
